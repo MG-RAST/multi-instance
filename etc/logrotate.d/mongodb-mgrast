@@ -1,0 +1,12 @@
+/var/log/mongodb/mgrast.log {     # TENANT
+       weekly
+       rotate 10
+       copytruncate
+       delaycompress
+       compress
+       notifempty
+       missingok
+       postrotate
+          /bin/kill -USR1 `cat /var/run/mongodb/mgrast.pid 2>/dev/null` 2> /dev/null|| true    # TENANT
+       endscript
+}
