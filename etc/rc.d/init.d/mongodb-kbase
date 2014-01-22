@@ -12,13 +12,13 @@
 exec="/usr/bin/mongod"    # This is a program on disk - not affected by multi-tenancy
 tenant="kbase"           # TENANT
 prog="mongodb-$tenant"   # TENANT
-logfile="/var/log/mongodb/$tenant.log"   # TENANT
+logfile="/var/log/mongodb/mongodb-$tenant.log"   # TENANT
 
-[ -e /etc/sysconfig/mongodb/$tenant ] && . /etc/sysconfig/mongodb/$tenant    #TENANT
+[ -e /etc/sysconfig/mongodb-$tenant ] && . /etc/sysconfig/mongodb-$tenant    #TENANT
 
-pidfile=${PIDFILE-/var/run/mongodb/$tenant.pid} # TENANT
+pidfile=${PIDFILE-/var/run/mongodb/mongodb-$tenant.pid} # TENANT
 options="$MONGODB_OPTIONS"
-lockfile="/var/lock/subsys/mongodb/$tenant"     # TENANT
+lockfile="/var/lock/subsys/mongodb-$tenant"     # TENANT
 
 # Nicer version of killproc that does not kill mongodb when it takes
 # a long time to shut down and does not hang for a long time when mongo

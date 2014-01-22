@@ -1,1 +1,0 @@
-MONGODB_OPTIONS="--quiet -f /etc/mongodb/mgrast.conf"
