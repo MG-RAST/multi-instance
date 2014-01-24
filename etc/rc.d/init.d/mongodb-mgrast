@@ -2,7 +2,7 @@
 #
 # mongodb-mgrast      init file for starting up the MongoDB server for the $tenant 
 #
-# chkconfig:   - 90 10
+# chkconfig:   - 90 20
 # description: Starts and stops the MongDB daemon that handles all \
 #              mgrast database requests.
 
