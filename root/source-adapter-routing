@@ -1,0 +1,36 @@
+#! /bin/bash 
+
+# This script taken nearly verbatim from the documentation at:
+# www.lartc.org/howto/lartc.rpdb.multiple-links.html
+
+
+IF1=eth0
+IP1=140.221.76.127
+P1=140.221.76.1
+P1_NET="140.221.76.0/24"
+T1=mgrast
+
+IF2=eth1
+IP2=192.5.200.71
+P2=192.5.200.1
+P2_NET="192.5.200.0/24"
+T2=kbase
+
+# /etc/iproute2/rt_tables needs to be updated with the T1/T2 tables names and their assigned local numbers
+
+ip route add $P1_NET dev $IF1 src $IP1 table $T1
+ip route add default via $P1 table $T1
+ip route add $P2_NET dev $IF2 src $IP2 table $T2
+ip route add default via $P2 table $T2
+
+ip route add $P1_NET dev $IF1 src $IP1
+ip route add $P2_NET dev $IF2 src $IP2
+
+# This command is a singleton - pick the ONE global default route
+ip route add default via $P1
+
+ip rule add from $IP1 table $T1
+ip rule add from $IP2 table $T2
+
+## END OF LINE ##
+
