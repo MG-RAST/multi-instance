@@ -1,0 +1,3 @@
+140.221.43.0/24 dev eth2 src 140.221.43.49 table kbase
+default via 140.221.43.1 table kbase
+140.221.43.0/24 dev eth2 src 140.221.43.49

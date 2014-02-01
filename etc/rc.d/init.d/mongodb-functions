@@ -10,7 +10,7 @@
 exec="/usr/bin/mongod"    # This is a program on disk - not affected by multi-tenancy
 prog="mongodb-$tenant"
 
-logfile="/var/log/mongodb/mongodb-$tenant.log" 
+logfile="/var/log/mongodb/$tenant.log" 
 pidfile="/var/run/mongodb/mongodb-$tenant.pid" 
 lockfile="/var/lock/subsys/mongodb-$tenant"    
 options="$MONGODB_OPTIONS"

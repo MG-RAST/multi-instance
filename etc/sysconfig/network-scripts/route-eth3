@@ -1,0 +1,3 @@
+140.221.76.0/24 dev eth3 src 140.221.76.25 table mgrast
+default via 140.221.76.1 table mgrast
+140.221.76.0/24 dev eth3 src 140.221.76.25

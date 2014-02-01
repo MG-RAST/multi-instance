@@ -7,10 +7,10 @@
 # Source the individual tenant sysconfig settings - Gives us our config file if nothing else.
 [ -e /etc/sysconfig/shockd-$tenant ] && . /etc/sysconfig/shockd-$tenant
 
-exec="/opt/shock/bin/shock-server"    # This is a program on disk - not affected by multi-tenancy
+exec="/opt/gocode/bin/shock-server"    # This is a program on disk - not affected by multi-tenancy
 prog="shockd-$tenant"
 
-logfile="/var/log/shock/shockd-$tenant/daemon-stderr.log"    
+logfile="/var/log/shock/$tenant/daemon-stderr.log"    
 pidfile="/var/run/shock/shockd-$tenant.pid" 
 lockfile="/var/lock/subsys/shockd-$tenant"    
 options="$SHOCKD_OPTIONS"
